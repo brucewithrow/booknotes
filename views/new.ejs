@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs'); %>
+
+<h2><%= title %> by <%= author %> </h2>
+<img src="<%= cover %>">
+<div class="container">
+    <p>Edit/add book info as necessary...</p>
+<form action="/save" method="post">
+        <div><label for="title">Book Title </label>
+        <input type="text" id="title" name="title" value="<%= title %>">
+    
+        <label for="author">Author </label>
+        <input type="text" id="author" name="author" value="<%= author %>"></div>
+    
+        <div><label for="publisher">Publisher </label>
+        <input type="text" id="publisher" name="publisher" value="<%= publisher %>">
+
+        <label for="publish_date">Publish Date </label>
+        <input type="text" id="publish_date" name="publish_date" value="<%= publish_date %>"></div>
+
+        <div><label for="pages"># of Pages </label>
+        <input type="text" id="pages" name="pages" value="<%= pages %>">
+
+        <label for="cover">Cover URL </label>
+        <input type="text" id="cover" name="cover" value="<%= cover %>"></div>
+
+        <div><label for="date_read">Date Read </label>
+        <input type="text" id="date_read" name="date_read" placeholder="MM/DD/YYYY"></div>
+
+        <div><label for="description">Description </label>
+        <textarea cols="100" rows="4" id="description" name="description" placeholder="Short description of the book"></textarea></div>
+
+        <div><label for="rating">Rating </label>
+        <input type="text" id="rating" name="rating" placeholder="Rating between 0 and 10">
+    
+        <label for="note">First Note</label>
+        <input type="text" id="note" name="note" placeholder="Enter your first note"></div>
+
+        <input type="hidden" id="isbn" name="isbn" value="<%= isbn %>">
+        <input type="hidden" id="note_date" name="note_date" value="<%= new Date().toLocaleDateString(); %>">
+
+        <button type="submit">Save Book Info</button>
+    
+
+</form>
+</div>
+
+<%- include('partials/footer.ejs'); %>

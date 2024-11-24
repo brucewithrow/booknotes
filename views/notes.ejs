@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<div class="grid-container">
+    <div class='cover'><img src='<%= book.cover_url %>'></div>
+    <div class="title"><h2><%= book.title %>
+        <% if (book.subtitle != null) { %>
+            - <%= book.subtitle %>
+       <% } %>
+       by <%= book.author %>
+    </h2></div>
+    <div class="rating"><p>Date Read: <%= book.date_read %>. Rating: <%= book.rating %>/10</p></div>
+    <div class="intro"><p><%= book.notes_intro %></p></div>
+    <div class=notes><% notes.forEach((note) => { %>
+        <p><%= note.note_date %>: <%= note.note %></p>
+    <% }); %>
+    <div class="button">
+        <form action="/notes/<%=book.id%>" method="post">
+            <input type="text" id="note" name="note" placeholder="Enter new note" hidden="true">
+            <input type="hidden" id="note_date" name="note_date" value="<%= new Date().toLocaleDateString(); %>">
+            <button class="btn btn-primary" id="save" type="submit" hidden="true">Save Note</button>    
+        </form></div>
+    <button class="btn btn-secondary notes-button" value="Add Note" name="notes" id="add" onclick="handler()">Add Note</button>          
+</div>
+</div>
+<script>
+    function handler() {
+      document.getElementById("add").setAttribute("hidden", true)
+      document.getElementById("save").removeAttribute("hidden")
+      document.getElementById("note").removeAttribute("hidden")
+    }
+</script>
+
+<%- include("partials/footer.ejs") %>
