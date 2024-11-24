@@ -17,7 +17,8 @@ This app allows you to query the Open Library 'READ API' by ISBN and then make n
 3. Update node packages (optional)
         `$> npm audit fix`
 4. Create and update 'booknotes' database in PostgreSQL according to 'BookNotes_ERD.png'
-5. Edit 'index.js' to update your PostgreSQL password and port 
+5. The CREATE TABLE queries to complete step 4 can be found in 'queries.sql'
+6. Edit 'index.js' to update your PostgreSQL password and port 
         `user: "postgres",`
         `host: "localhost",`
         `database: "booknotes",`
