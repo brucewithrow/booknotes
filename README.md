@@ -6,7 +6,8 @@ This app allows you to query the Open Library 'READ API' by ISBN and then make n
 
 ## Requirements
 
-1. Node.js installed locally
+1. Node.js 
+2. PostgreSQL
 
 ## Installation
 
@@ -15,6 +16,13 @@ This app allows you to query the Open Library 'READ API' by ISBN and then make n
         `$> npm i`
 3. Update node packages (optional)
         `$> npm audit fix`
+4. Create and update 'booknotes' database in PostgreSQL according to 'BookNotes_ERD.png'
+5. Edit 'index.js' to update your PostgreSQL password and port
+       ```user: "postgres",
+        host: "localhost",
+        database: "booknotes",
+        password: "enterDBpassword",
+        port: 5432```
 
 ## Run the app
 
